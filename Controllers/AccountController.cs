@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using TestCode.IServices;
 
-namespace TestCode.Controllers.LoginApi
+namespace TestCode.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -16,14 +16,14 @@ namespace TestCode.Controllers.LoginApi
             _tokenService = tokenService;
         }
 
-        [HttpPost("login")]
-        public ActionResult Login(string email, string password)
-        {
-            if (email != "admin@gmail.com" && password != "123")
-                return Unauthorized("Invalid Credentials");
-            else
-                return new JsonResult(new { userName = email, token = _tokenService.CreateToken(email) });
-        }
+        //[HttpPost("login")]
+        //public ActionResult Login(string email, string password)
+        //{
+        //    if (email != "admin@gmail.com" && password != "123")
+        //        return Unauthorized("Invalid Credentials");
+        //    else
+        //        return new JsonResult(new { userName = email, token = _tokenService.CreateToken(email) });
+        //}
     }
 
 }

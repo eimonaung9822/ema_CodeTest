@@ -1,0 +1,262 @@
+{
+	"info": {
+		"_postman_id": "fc4bd6ba-f1fe-4aa7-8383-7b238a651494",
+		"name": "CodeTest_Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "23318567",
+		"_collection_link": "https://lively-flare-584935.postman.co/workspace/Ei-Mon-Aung~82d67485-025a-4507-adf0-c49fba276e62/collection/23318567-fc4bd6ba-f1fe-4aa7-8383-7b238a651494?action=share&source=collection_link&creator=23318567"
+	},
+	"item": [
+		{
+			"name": "Register",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "eyJhbGciOiJIUzUxMiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiIwOTEyMzQ1Njc4OSIsIm5iZiI6MTY5NjY3ODY0MCwiZXhwIjoxNjk2NzY1MDQwLCJpYXQiOjE2OTY2Nzg2NDB9.HeTR9eS0oDizaBJkaUmzVrtLBM9hiADPOiA7W3fDKly1wLLGUz-79tXnlOeQqILWDZ78IcJpvo6blg_GV0L7bg"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7071/api/MobileApi/Register?MobileNo=09123456789&Otp=1234",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7071",
+					"path": [
+						"api",
+						"MobileApi",
+						"Register"
+					],
+					"query": [
+						{
+							"key": "MobileNo",
+							"value": "09123456789"
+						},
+						{
+							"key": "Otp",
+							"value": "1234"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetExchangeCoupons",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7071/api/MobileApi/GetExchangeCoupons?memberId=1",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7071",
+					"path": [
+						"api",
+						"MobileApi",
+						"GetExchangeCoupons"
+					],
+					"query": [
+						{
+							"key": "memberId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetMemberQR",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7071/api/MobileApi/GetMemberQR?memberId=1",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7071",
+					"path": [
+						"api",
+						"MobileApi",
+						"GetMemberQR"
+					],
+					"query": [
+						{
+							"key": "memberId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetPurchasesbyMemberId",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "CalculatePoint",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": " {\r\n        \"id\": 1,\r\n        \"couponId\": 1,\r\n        \"memberId\": 1,\r\n        \"receiptNo\": 1,\r\n        \"itemLists\": [\r\n            {\r\n                \"id\": 1,\r\n                \"purchaseId\": 1,\r\n                \"isNonAlcohol\": true,\r\n                \"price\": 100,\r\n                \"qty\": 10,\r\n                \"amount\": 1000\r\n            }\r\n        ],\r\n        \"name\": \"string\",\r\n        \"phno\": \"string\",\r\n        \"date\": \"2023-10-07T00:00:00\",\r\n        \"isDeleted\": true\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "https://localhost:7071/api/Point/CalculatePoint"
+			},
+			"response": []
+		},
+		{
+			"name": "GetTotalPointbyMemberId",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7071/api/MobileApi/GetTotalPointbyMemberId?memberId=1",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7071",
+					"path": [
+						"api",
+						"MobileApi",
+						"GetTotalPointbyMemberId"
+					],
+					"query": [
+						{
+							"key": "memberId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetExchangePoint",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7071/api/MobileApi/GetExchangePoint?memberId=1&couponId=4&requirePoint=50",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7071",
+					"path": [
+						"api",
+						"MobileApi",
+						"GetExchangePoint"
+					],
+					"query": [
+						{
+							"key": "memberId",
+							"value": "1"
+						},
+						{
+							"key": "couponId",
+							"value": "4"
+						},
+						{
+							"key": "requirePoint",
+							"value": "50"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetPurchases",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "https://localhost:7071/api/MobileApi/GetPurchases"
+			},
+			"response": []
+		},
+		{
+			"name": "CreatePurchase",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": 0,\r\n  \"couponId\": 1,\r\n    \"memberId\": 1,\r\n    \"receiptNo\": 1,\r\n    \"itemLists\": [\r\n      {\r\n        \"id\": 0,\r\n        \"purchaseId\": 0,\r\n        \"isNonAlcohol\": true,\r\n        \"price\": 100,\r\n        \"qty\": 10,\r\n        \"amount\": 1000\r\n      }\r\n    ],\r\n    \"name\": \"string\",\r\n    \"phno\": \"string\",\r\n    \"date\": \"0001-01-01T00:00:00\",\r\n    \"isDeleted\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "https://localhost:7071/api/POSApi/CreatePurchase"
+			},
+			"response": []
+		},
+		{
+			"name": "CreateMember",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": 0,\r\n  \"name\": \"string\",\r\n  \"mobileNo\": \"string\",\r\n  \"totalPoint\": 0,\r\n  \"totalPurchaseAmount\": 0\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "https://localhost:7071/api/MobileApi/CreateMember"
+			},
+			"response": []
+		},
+		{
+			"name": "GetUsedCoupons",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7071/api/MobileApi/GetUsedCoupons?memberId=1",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7071",
+					"path": [
+						"api",
+						"MobileApi",
+						"GetUsedCoupons"
+					],
+					"query": [
+						{
+							"key": "memberId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

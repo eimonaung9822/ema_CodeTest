@@ -1,3 +1,5 @@
+using CodeTest.IServices;
+using CodeTest.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
@@ -7,7 +9,11 @@ using TestCode.IServices;
 using TestCode.Services;
 
 var builder = WebApplication.CreateBuilder(args);
-
+builder.Services.AddStackExchangeRedisCache(options =>
+{
+    options.Configuration = "localhost:6379" /*builder.Configuration["RedisConnection:Configuration"]*/;
+    options.InstanceName = "RedisDemo"/*builder.Configuration["RedisConnection:InstanceName"]*/;
+});
 builder.Services.AddDbContext<ItemDbContext>(options =>
 {
     var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
@@ -39,6 +45,9 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddScoped<ITokenService, TokenService>();
+builder.Services.AddScoped<IPOSService, POSService>();
+builder.Services.AddScoped<IPointService, PointService>();
+builder.Services.AddScoped<IMobileService, MobileService>();
 builder.Services.AddSwaggerGen(options => {
     options.AddSecurityDefinition("Bearer", new Microsoft.OpenApi.Models.OpenApiSecurityScheme
     {
