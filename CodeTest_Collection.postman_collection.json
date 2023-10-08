@@ -191,7 +191,7 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"url": "https://localhost:7071/api/MobileApi/GetPurchases"
+				"url": "https://localhost:7071/api/POSApi/GetPurchases"
 			},
 			"response": []
 		},

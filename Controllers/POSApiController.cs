@@ -28,7 +28,19 @@ namespace CodeTest.Controllers.API
             _mapper = mapper;
             _posService = posService;
             _distributedCache = distributedCache;
-        }        
+        }
+
+        [Route("GetPurchases")]
+        [HttpGet]
+        public async Task<IEnumerable<PurchaseDTO>> Get()
+        {
+
+            List<Purchase> PurchaseList = await _posService.GetAllPurchases();
+            List<PurchaseDTO> PurchaseDtoList = new List<PurchaseDTO>();
+            PurchaseList.ForEach(x => PurchaseDtoList.Add(_mapper.Map<PurchaseDTO>(x)));
+
+            return PurchaseDtoList;
+        }
 
         [Route("CreatePurchase")]
         [HttpPost]
